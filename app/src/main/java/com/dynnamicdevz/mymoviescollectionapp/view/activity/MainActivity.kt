@@ -1,7 +1,8 @@
-package com.dynnamicdevz.mymoviescollectionapp
+package com.dynnamicdevz.mymoviescollectionapp.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dynnamicdevz.mymoviescollectionapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
