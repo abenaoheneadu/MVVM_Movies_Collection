@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MyMoviesCollectionApp</string>
+    <string name="app_name">New Arrivals</string>
+    <string name="end_game_synopsis">The epic finale to the Infinity Saga, this dramatic showdown pits the Avengers against Thanos.</string>
 </resources>
