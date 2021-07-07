@@ -24,6 +24,7 @@ class DisplayMoviesFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.movieRecyclerview.adapter = adapter
     }
+    // do you see this
 
 //    fun updateTeams(list: List<Team>){
 //        adapter.list = list

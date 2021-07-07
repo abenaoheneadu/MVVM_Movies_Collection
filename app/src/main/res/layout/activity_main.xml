@@ -24,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:textStyle="bold"
         android:text="@string/from_a_to_z_tv"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/movie_sorted_recyclerview"
