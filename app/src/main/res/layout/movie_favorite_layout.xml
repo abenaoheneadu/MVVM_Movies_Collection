@@ -36,7 +36,7 @@
 
         <TextView
             android:textColor="@color/white"
-            android:id="@+id/runtime_tv"
+            android:id="@+id/runtime_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -50,7 +50,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/delete_button"
-            android:text=" "
+            android:text="@string/blank_space_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

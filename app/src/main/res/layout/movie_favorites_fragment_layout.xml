@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginLeft="16dp"
-        android:text="Favorites"
+        android:text="@string/favorites_tv"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="New Arrivals"
+        android:text="@string/new_arrivals_tv"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:text="From A to Z"
+        android:text="@string/from_a_to_z_tv"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/movie_sorted_recyclerview"
         app:layout_constraintEnd_toEndOf="parent" />

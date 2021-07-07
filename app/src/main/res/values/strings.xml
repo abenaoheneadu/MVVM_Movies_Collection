@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">New Arrivals</string>
     <string name="end_game_synopsis">The epic finale to the Infinity Saga, this dramatic showdown pits the Avengers against Thanos.</string>
+    <string name="new_arrivals_tv">New Arrivals</string>
+    <string name="from_a_to_z_tv">From A to Z</string>
+    <string name="end_game_tv">End Game</string>
+    <string name="endgame_release_year">2019</string>
+    <string name="endgame_runtime">3h 10m</string>
+    <string name="add_fav_button">Add</string>
+    <string name="blank_space_text" />
+    <string name="favorites_tv">Favorites</string>
+    <string name="rating_tv">4.5</string>
 </resources>
