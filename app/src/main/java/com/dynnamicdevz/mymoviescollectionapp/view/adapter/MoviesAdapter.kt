@@ -31,9 +31,10 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         //holder.binding.textView.text = list[position].name
         holder.binding.titleTextview.text = list[position].title
-//        Glide.with(binding)
-//            .load(list[position].poster_path)
-//            .into<Target<Drawable>>(binding.posterImageview)
+        Glide.with(holder.itemView)
+            .load(list[position].poster_path)
+            .into(holder.binding.posterImageview)
+        holder.binding.releaseYearTextview.text = list[position].release_date
 
     }
 

@@ -22,5 +22,9 @@ class MoviesRetrofit {
         @Headers(API_KEY)
         @GET(END_POINT)
         fun getAllPopularMovies(): Call<MoviesResponse>
+
+
+//        @GET(END_POINT_2)
+//        fun getAllPopularMovies2(): Call<MoviesResponse>
     }
 }
