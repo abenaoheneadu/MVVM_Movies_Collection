@@ -7,6 +7,17 @@
     tools:context=".view.activity.MainActivity"
     android:background="#1f2330">
 
+    <fragment
+        android:id="@+id/display_movies_fragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/new_arrivals__sorted_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:name="com.dynnamicdevz.mymoviescollectionapp.view.fragment.DisplayMoviesFragment"
+        />
+
     <TextView
         android:layout_marginRight="16dp"
         android:id="@+id/new_arrivals__sorted_tv"
@@ -18,20 +29,6 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/movie_sorted_recyclerview"
         app:layout_constraintEnd_toEndOf="parent" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movie_recyclerview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="16dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/movie_sorted_recyclerview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/movie_item_layout" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/movie_sorted_recyclerview"
