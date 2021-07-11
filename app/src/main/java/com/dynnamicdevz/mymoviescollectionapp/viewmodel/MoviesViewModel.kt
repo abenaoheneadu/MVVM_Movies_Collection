@@ -16,14 +16,12 @@ class MoviesViewModel: ViewModel() {
 
     val moviesLiveData = MutableLiveData<List<Result>>()
 
-    fun getAllRepos() {
+    fun getAllPopularMovies() {
         moviesRetrofit.getMovies().enqueue(object: Callback<MoviesResponse> {
             override fun onResponse(call: Call<MoviesResponse>, response: Response<MoviesResponse>) {
                 response.body()?.let {
                     moviesLiveData.postValue(it.results)
-                } ?: {
-//                   Handle Error and log
-                }()
+                } ?: Log.d("TAG_X", "The response was null ${call.request().url()}")
             }
 
             override fun onFailure(call: Call<MoviesResponse>, t: Throwable) {

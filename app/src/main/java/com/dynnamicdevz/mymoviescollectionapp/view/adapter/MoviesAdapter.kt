@@ -1,6 +1,7 @@
 package com.dynnamicdevz.mymoviescollectionapp.view.adapter
 
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +9,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieItemLayoutBinding
+import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieSortedItemLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.model.data.Result
+import com.dynnamicdevz.mymoviescollectionapp.util.Constants.IMAGE_URL
 
 class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
     var list: List<Result> = mutableListOf()
@@ -17,10 +20,10 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
             notifyDataSetChanged()
         }
 
-    inner class MovieViewHolder(val binding: MovieItemLayoutBinding): RecyclerView.ViewHolder(binding.root)
+    inner class MovieViewHolder(val binding: MovieSortedItemLayoutBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val binding = MovieItemLayoutBinding.inflate(
+        val binding = MovieSortedItemLayoutBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -30,11 +33,13 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         //holder.binding.textView.text = list[position].name
-        holder.binding.titleTextview.text = list[position].title
+        //holder.binding.titleTextview.text = list[position].title
         Glide.with(holder.itemView)
-            .load(list[position].poster_path)
+            .load("$IMAGE_URL${list[position].poster_path}")
             .into(holder.binding.posterImageview)
-        holder.binding.releaseYearTextview.text = list[position].release_date
+
+        Log.d("TAG_X", "Link? ${list[position].poster_path}")
+        //holder.binding.releaseYearTextview.text = list[position].release_date
 
     }
 

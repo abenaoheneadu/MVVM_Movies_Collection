@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
+import retrofit2.http.Query
 
 class MoviesRetrofit {
     private val movieService = createRetrofit().create(MovieService::class.java)
@@ -16,12 +17,11 @@ class MoviesRetrofit {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun getMovies() = movieService.getAllPopularMovies()
+    fun getMovies() = movieService.getAllPopularMovies(API_KEY)
 
     interface MovieService{
-        @Headers(API_KEY)
         @GET(END_POINT)
-        fun getAllPopularMovies(): Call<MoviesResponse>
+        fun getAllPopularMovies(@Query(API_QUERY) apiKey: String): Call<MoviesResponse>
 
 
 //        @GET(END_POINT_2)
