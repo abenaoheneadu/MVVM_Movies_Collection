@@ -17,12 +17,8 @@ import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.IMAGE_URL
 import com.dynnamicdevz.mymoviescollectionapp.util.ViewType
 
 
+class MoviesAdapter(private val vType: ViewType) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-class MoviesAdapter(private val vType: ViewType, private val delegate: MovieDelegate) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-    interface MovieDelegate{
-        fun selectMovie(result: Result)
-    }
     inner class FavoritesViewHolder(val binding: MovieFavoriteLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -58,10 +54,6 @@ class MoviesAdapter(private val vType: ViewType, private val delegate: MovieDele
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
         val result = listResults[position]
-        holder.itemView.setOnClickListener{
-            delegate.selectMovie(result)
-        }
-
         if (holder is HomeViewHolder) {
 
             Glide.with(holder.itemView)

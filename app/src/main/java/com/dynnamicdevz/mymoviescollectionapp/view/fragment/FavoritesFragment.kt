@@ -49,4 +49,8 @@ class FavoritesFragment: Fragment(), MoviesAdapter.MovieDelegate {
         movieSelector.openMovieDetails(result)
     }
 
+    override fun selectMovie(result: Result) {
+        TODO("Not yet implemented")
+    }
+
 }
