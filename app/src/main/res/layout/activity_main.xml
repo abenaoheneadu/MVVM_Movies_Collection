@@ -7,6 +7,12 @@
     tools:context=".view.activity.MainActivity"
     android:background="#1f2330">
 
+    <FrameLayout
+        android:elevation="10dp"
+        android:id="@+id/details_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/main_vp"
         android:layout_width="match_parent"

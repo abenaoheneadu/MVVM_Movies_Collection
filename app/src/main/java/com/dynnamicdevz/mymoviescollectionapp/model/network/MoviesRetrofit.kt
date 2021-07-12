@@ -2,6 +2,10 @@ package com.dynnamicdevz.mymoviescollectionapp.model.network
 
 import com.dynnamicdevz.mymoviescollectionapp.model.data.MoviesResponse
 import com.dynnamicdevz.mymoviescollectionapp.util.Constants.*
+import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.API_KEY
+import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.API_QUERY
+import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.BASE_URL
+import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.END_POINT
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
