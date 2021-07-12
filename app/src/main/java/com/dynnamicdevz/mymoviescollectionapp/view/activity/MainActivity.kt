@@ -4,16 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import androidx.viewpager.widget.ViewPager
 import com.dynnamicdevz.mymoviescollectionapp.R
 import com.dynnamicdevz.mymoviescollectionapp.databinding.ActivityMainBinding
+import com.dynnamicdevz.mymoviescollectionapp.model.data.Result
 import com.dynnamicdevz.mymoviescollectionapp.view.adapter.HomeFragmentAdapter
-import com.dynnamicdevz.mymoviescollectionapp.view.adapter.MoviesAdapter
-import com.dynnamicdevz.mymoviescollectionapp.view.fragment.DisplayMoviesFragment
+import com.dynnamicdevz.mymoviescollectionapp.view.fragment.MovieDetailsFragment
+import com.dynnamicdevz.mymoviescollectionapp.view.fragment.MovieSelector
 import com.dynnamicdevz.mymoviescollectionapp.viewmodel.MoviesViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MovieSelector {
 
     private val viewModel by viewModels<MoviesViewModel>()
     private lateinit var binding: ActivityMainBinding
@@ -54,6 +54,19 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
+    override fun openMovieDetails(result: Result) {
+        val fragment = MovieDetailsFragment.getInstance(result)
+
+        Log.d("TAG_X", "odf")
+        supportFragmentManager.beginTransaction()
+            .add(R.id.details_frame, fragment)
+            .addToBackStack(fragment.tag)
+            .commit()
+    }
+
+
+}
     //private lateinit var displayMoviesFragment: DisplayMoviesFragment
 
     /*private lateinit var binding: ActivityMainBinding
@@ -73,4 +86,3 @@ class MainActivity : AppCompatActivity() {
         })
         viewModel.getAllPopularMovies()
     }*/
-}
