@@ -10,11 +10,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieFavoriteLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieFavoritesFragmentLayoutBinding
-import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieItemLayoutBinding
+//import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieItemLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieSortedItemLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.model.data.Result
 import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.IMAGE_URL
 import com.dynnamicdevz.mymoviescollectionapp.util.ViewType
+import java.time.Year
 
 
 class MoviesAdapter(private val vType: ViewType, private val movieDelegate: MovieDelegate) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -71,7 +72,7 @@ interface MovieDelegate{
 
             holder.binding.root.setOnClickListener {
                 movieDelegate.selectMovies(result)
-                Log.d("TAG_X", "clicked....")
+                Log.d("TAG_X", "clicked...")
             }
 
             Glide.with(holder.itemView)
@@ -79,11 +80,15 @@ interface MovieDelegate{
                 .load("$IMAGE_URL${listResults[position].poster_path}")
                 .into(holder.binding.posterImageview)
             holder.binding.titleTextview.text = result.title
+            holder.binding.releaseYearTextview.text = result.release_date
         }
+
     }
 
     override fun getItemCount(): Int = listResults.size
 }
+
+
 
 /*
 class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {

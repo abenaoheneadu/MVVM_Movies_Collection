@@ -9,6 +9,6 @@ class MovieRepo {
     private val moviesRetrofit = MoviesRetrofit()
 
     fun readFromRemoteSource(): Call<MoviesResponse> = moviesRetrofit.getMovies()
-   // fun readFromCache(): getDao()
-   // fun readFromCache(): getDao()
+
+   fun readFromCache() = getDao()
 }

@@ -51,25 +51,36 @@
         app:layout_constraintStart_toEndOf="@+id/release_year_tv"
         app:layout_constraintTop_toBottomOf="@+id/movie_title_tv" />
 
+    <RatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        app:layout_constraintBottom_toTopOf="@+id/synopsis_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_dot" />
+
     <TextView
         android:layout_marginLeft="16dp"
-        android:id="@+id/runtime_tv"
+        android:id="@+id/votes_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:text="@string/endgame_runtime"
+        android:text="10.0"
         app:layout_constraintStart_toEndOf="@id/first_dot"
         app:layout_constraintTop_toBottomOf="@id/movie_title_tv" />
 
     <TextView
-        android:layout_margin="24dp"
         android:id="@+id/synopsis_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="@string/end_game_synopsis"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:text="@string/end_game_synopsis"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/release_year_tv" />
 

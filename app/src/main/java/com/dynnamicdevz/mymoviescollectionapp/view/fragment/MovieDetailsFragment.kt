@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieDetailsFragmentLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.model.data.Result
 import com.dynnamicdevz.mymoviescollectionapp.util.Constants
 import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.IMAGE_URL
+import com.dynnamicdevz.mymoviescollectionapp.viewmodel.MoviesViewModel
 
 class MovieDetailsFragment: Fragment() {
     companion object{
@@ -29,6 +31,8 @@ class MovieDetailsFragment: Fragment() {
         }
 
     }
+
+    private val viewModel: MoviesViewModel by activityViewModels()
 
 
     private lateinit var binding: MovieDetailsFragmentLayoutBinding
@@ -53,9 +57,17 @@ class MovieDetailsFragment: Fragment() {
             binding.synopsisTv.text = it.overview
             binding.movieTitleTv.text = it.title
             binding.releaseYearTv.text = it.release_date
+            binding.votesTv.text = it.vote_average.toString()
+            binding.ratingBar.rating = it.vote_average.toFloat()
             //binding.runtimeTv.text = it.
 
+            binding.addFavoriteButton.setOnClickListener {v ->
+                viewModel.addToFavorites(it)
+            }
+
         }
+
+
     }
 
 }

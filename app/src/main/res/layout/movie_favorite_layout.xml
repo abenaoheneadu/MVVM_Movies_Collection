@@ -36,14 +36,14 @@
 
         <TextView
             android:textColor="@color/white"
-            android:id="@+id/runtime_textview"
+            android:id="@+id/releaseYear_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:layout_marginLeft="8dp"
             app:layout_constraintStart_toEndOf="@+id/poster_imageview"
             app:layout_constraintTop_toBottomOf="@id/title_textview"
-            tools:text="3h 4m" />
+            tools:text="2019" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/delete_favorite_button"

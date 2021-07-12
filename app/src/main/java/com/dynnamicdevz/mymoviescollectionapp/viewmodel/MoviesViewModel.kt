@@ -3,9 +3,12 @@ package com.dynnamicdevz.mymoviescollectionapp.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dynnamicdevz.mymoviescollectionapp.model.MovieRepo
+import com.dynnamicdevz.mymoviescollectionapp.model.data.MovieCache
 import com.dynnamicdevz.mymoviescollectionapp.model.data.MoviesResponse
 import com.dynnamicdevz.mymoviescollectionapp.model.data.Result
 import com.dynnamicdevz.mymoviescollectionapp.model.network.MoviesRetrofit
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,5 +32,22 @@ class MoviesViewModel: ViewModel() {
             }
         })
     }
+
+    fun addToFavorites(it: Result) {
+
+        val data = Gson().toJson(it)
+        MovieRepo().readFromCache().cacheData(MovieCache(1, data))
+    }
+
+//    fun getFavorites(){
+//        //
+//        Thread(){
+//
+//            val list = Gson(MovieRepo().readFromCache().readFromCache(), Movi)
+//
+//
+//        }.start()
+//
+//    }
 
 }
