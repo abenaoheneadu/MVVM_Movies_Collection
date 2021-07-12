@@ -7,39 +7,22 @@
     tools:context=".view.activity.MainActivity"
     android:background="#1f2330">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movie_recyclerview"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/main_vp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/movie_item_layout" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/main_menu" />
 
-    <TextView
-        android:layout_marginRight="16dp"
-        android:id="@+id/new_arrivals__sorted_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="@string/from_a_to_z_tv"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/movie_sorted_recyclerview"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movie_sorted_recyclerview"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_menu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/movie_sorted_item_layout" />
+        app:menu="@menu/bottom_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
