@@ -17,8 +17,10 @@ import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.IMAGE_URL
 import com.dynnamicdevz.mymoviescollectionapp.util.ViewType
 
 
-class MoviesAdapter(private val vType: ViewType) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
+class MoviesAdapter(private val vType: ViewType, private val movieDelegate: MovieDelegate) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+interface MovieDelegate{
+    fun selectMovies(result: Result)
+}
     inner class FavoritesViewHolder(val binding: MovieFavoriteLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -56,11 +58,22 @@ class MoviesAdapter(private val vType: ViewType) : RecyclerView.Adapter<Recycler
         val result = listResults[position]
         if (holder is HomeViewHolder) {
 
+            holder.binding.root.setOnClickListener {
+                movieDelegate.selectMovies(result)
+                Log.d("TAG_X", "clicked....")
+            }
+
             Glide.with(holder.itemView)
                 .applyDefaultRequestOptions(RequestOptions().centerCrop())
                 .load("$IMAGE_URL${listResults[position].poster_path}")
                 .into(holder.binding.posterImageview)
         } else if (holder is FavoritesViewHolder) {
+
+            holder.binding.root.setOnClickListener {
+                movieDelegate.selectMovies(result)
+                Log.d("TAG_X", "clicked....")
+            }
+
             Glide.with(holder.itemView)
                 .applyDefaultRequestOptions(RequestOptions().centerCrop())
                 .load("$IMAGE_URL${listResults[position].poster_path}")
