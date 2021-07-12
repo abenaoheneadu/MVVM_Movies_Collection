@@ -37,6 +37,10 @@ android {
 }
 
 dependencies {
+    //RxJAva
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.16'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
     //Glide
     implementation "com.github.bumptech.glide:glide:4.12.0"
     annotationProcessor "com.github.bumptech.glide:compiler:4.12.0"

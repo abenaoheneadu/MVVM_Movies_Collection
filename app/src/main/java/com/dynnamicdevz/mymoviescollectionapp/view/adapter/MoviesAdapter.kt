@@ -11,7 +11,8 @@ import com.bumptech.glide.request.target.Target
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieItemLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieSortedItemLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.model.data.Result
-import com.dynnamicdevz.mymoviescollectionapp.util.Constants.IMAGE_URL
+import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.IMAGE_URL
+
 
 class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
     var list: List<Result> = mutableListOf()
