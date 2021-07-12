@@ -8,12 +8,76 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieFavoriteLayoutBinding
+import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieFavoritesFragmentLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieItemLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieSortedItemLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.model.data.Result
+<<<<<<< HEAD
 import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.IMAGE_URL
 
+=======
+import com.dynnamicdevz.mymoviescollectionapp.util.Constants.IMAGE_URL
+import com.dynnamicdevz.mymoviescollectionapp.util.ViewType
+>>>>>>> b6bbe53e5158b17fd4fff07e49ca0cdd6ff713b0
 
+
+class MoviesAdapter(private val vType: ViewType) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    inner class FavoritesViewHolder(val binding: MovieFavoriteLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+    inner class HomeViewHolder(val binding: MovieSortedItemLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+    var listResults = listOf<Result>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
+        return if (vType == ViewType.HOME) {
+            HomeViewHolder(
+                MovieSortedItemLayoutBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+        } else
+            FavoritesViewHolder(
+                MovieFavoriteLayoutBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+
+        val result = listResults[position]
+        if (holder is HomeViewHolder) {
+
+            Glide.with(holder.itemView)
+                .applyDefaultRequestOptions(RequestOptions().centerCrop())
+                .load("$IMAGE_URL${listResults[position].poster_path}")
+                .into(holder.binding.posterImageview)
+        } else if (holder is FavoritesViewHolder) {
+            Glide.with(holder.itemView)
+                .applyDefaultRequestOptions(RequestOptions().centerCrop())
+                .load("$IMAGE_URL${listResults[position].poster_path}")
+                .into(holder.binding.posterImageview)
+            holder.binding.titleTextview.text = result.title
+        }
+    }
+
+    override fun getItemCount(): Int = listResults.size
+}
+
+/*
 class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
     var list: List<Result> = mutableListOf()
         set(value) {
@@ -45,4 +109,4 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
     }
 
     override fun getItemCount(): Int = list.size
-}
+}*/

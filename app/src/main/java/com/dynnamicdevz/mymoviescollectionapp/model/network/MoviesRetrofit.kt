@@ -28,6 +28,7 @@ class MoviesRetrofit {
         fun getAllPopularMovies(@Query(API_QUERY) apiKey: String): Call<MoviesResponse>
 
 
+
 //        @GET(END_POINT_2)
 //        fun getAllPopularMovies2(): Call<MoviesResponse>
     }

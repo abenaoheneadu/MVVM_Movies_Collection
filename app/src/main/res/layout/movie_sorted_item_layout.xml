@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/poster_imageview"
-            android:layout_width="240dp"
-            android:layout_height="300dp"
+            android:layout_width="320dp"
+            android:layout_height="400dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
