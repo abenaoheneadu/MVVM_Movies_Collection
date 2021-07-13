@@ -12,6 +12,7 @@ import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieFavoriteLayoutBin
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieFavoritesFragmentLayoutBinding
 //import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieItemLayoutBinding
 import com.dynnamicdevz.mymoviescollectionapp.databinding.MovieSortedItemLayoutBinding
+import com.dynnamicdevz.mymoviescollectionapp.model.data.FavoritesCache
 import com.dynnamicdevz.mymoviescollectionapp.model.data.Result
 import com.dynnamicdevz.mymoviescollectionapp.util.Constants.Companion.IMAGE_URL
 import com.dynnamicdevz.mymoviescollectionapp.util.ViewType
@@ -28,11 +29,17 @@ interface MovieDelegate{
     inner class HomeViewHolder(val binding: MovieSortedItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    var listResults = listOf<Result>()
+    var listAPIResults = listOf<Result>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
+
+    var listDBResults = listOf<FavoritesCache>()
+    set(value){
+        field = value
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -56,7 +63,7 @@ interface MovieDelegate{
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        val result = listResults[position]
+        val result = listAPIResults[position]
         if (holder is HomeViewHolder) {
 
             holder.binding.root.setOnClickListener {
@@ -66,7 +73,7 @@ interface MovieDelegate{
 
             Glide.with(holder.itemView)
                 .applyDefaultRequestOptions(RequestOptions().centerCrop())
-                .load("$IMAGE_URL${listResults[position].poster_path}")
+                .load("$IMAGE_URL${listAPIResults[position].poster_path}")
                 .into(holder.binding.posterImageview)
         } else if (holder is FavoritesViewHolder) {
 
@@ -77,7 +84,7 @@ interface MovieDelegate{
 
             Glide.with(holder.itemView)
                 .applyDefaultRequestOptions(RequestOptions().centerCrop())
-                .load("$IMAGE_URL${listResults[position].poster_path}")
+                .load("$IMAGE_URL${listAPIResults[position].poster_path}")
                 .into(holder.binding.posterImageview)
             holder.binding.titleTextview.text = result.title
             holder.binding.releaseYearTextview.text = result.release_date
@@ -85,7 +92,7 @@ interface MovieDelegate{
 
     }
 
-    override fun getItemCount(): Int = listResults.size
+    override fun getItemCount(): Int = if(vType == ViewType.HOME){listAPIResults.size}else{listDBResults.size}
 }
 
 

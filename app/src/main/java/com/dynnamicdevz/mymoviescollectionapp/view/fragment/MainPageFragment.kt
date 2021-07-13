@@ -39,7 +39,7 @@ class MainPageFragment: Fragment(), MoviesAdapter.MovieDelegate {
         super.onViewCreated(view, savedInstanceState)
         binding.movieRecyclerview.adapter = adapter
         viewModel.moviesLiveData.observe(viewLifecycleOwner,{
-            adapter.listResults = it
+            adapter.listAPIResults = it
         })
         viewModel.getAllPopularMovies()
     }

@@ -41,7 +41,7 @@ class FavoritesFragment: Fragment(), MoviesAdapter.MovieDelegate {
         super.onViewCreated(view, savedInstanceState)
         binding.movieFavoritesRecyclerview.adapter = adapter
         viewModel.moviesLiveData.observe(viewLifecycleOwner,{
-            adapter.listResults = it
+            adapter.listAPIResults = it
         })
     }
 

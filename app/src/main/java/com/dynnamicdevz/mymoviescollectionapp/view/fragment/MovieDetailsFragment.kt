@@ -61,9 +61,9 @@ class MovieDetailsFragment: Fragment() {
             binding.ratingBar.rating = it.vote_average.toFloat()
             //binding.runtimeTv.text = it.
 
-            binding.addFavoriteButton.setOnClickListener {v ->
-                viewModel.addToFavorites(it)
-            }
+//            binding.addFavoriteButton.setOnClickListener {v ->
+//                viewModel.addToFavorites(it)
+//            }
 
         }
 
